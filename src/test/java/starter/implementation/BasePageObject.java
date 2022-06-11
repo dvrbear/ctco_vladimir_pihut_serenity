@@ -170,7 +170,7 @@ public class BasePageObject extends PageObject {
         failWithMessage(String.format("Locator was not found: [%s]", xpath));
     }
 
-    void failWithMessage(String message) {
+    public void failWithMessage(String message) {
         Assert.fail("> > > > > > > " + message);
     }
 }

@@ -3,14 +3,15 @@ package starter.definition;
 import io.cucumber.java.en.When;
 import starter.implementation.Login;
 
+import static starter.utils.Creds.BASE_URL;
+
 public class LoginDef {
 
     private Login login;
 
     @When("opens main page")
     public void openShopPage() {
-//        login.gotoURL("https://seat.orange.md/");
-        login.gotoURL("https://senseit-test.orange.md/");
+        login.gotoURL(BASE_URL);
     }
 
     @When("introduce username and pass")
