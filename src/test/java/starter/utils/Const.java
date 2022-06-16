@@ -11,7 +11,7 @@ public class Const {
     public static int MEDIUM_TIMEOUT = 15;
     public static int LONG_TIMEOUT = 20;
 
-    public static String DATE_PATERRN = "//span[contains(@aria-label, '%s, 2022')]";
+    public static String DATE_PATTERN = "//span[contains(@aria-label, '%s, 2022')]";
 
-    public static String HOUR_PATERRN = "//td[contains(@data-time,'%s')]/ancestor::tr[position()=1]";
+    public static String HOUR_PATTERN = "//td[contains(@data-time,'%s')]/ancestor::tr[position()=1]";
 }

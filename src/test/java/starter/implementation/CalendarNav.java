@@ -1,15 +1,17 @@
 package starter.implementation;
 
+import org.apache.commons.text.CaseUtils;
 import starter.utils.Const;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.time.temporal.IsoFields;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 public class CalendarNav extends BasePageObject {
 
@@ -22,7 +24,7 @@ public class CalendarNav extends BasePageObject {
         for (int i = 0; i < checkWhatWeek(month, dayOfMonth); i++) {
             click("//div[@class='icon next']");
         }
-        click(String.format(Const.DATE_PATERRN, date));
+        click(String.format(Const.DATE_PATTERN, date));
     }
 
     public void checkWhatMonth(String month, String dayOfMonth) {
@@ -36,11 +38,19 @@ public class CalendarNav extends BasePageObject {
         if (!checkIfNextMoth) {
             click("//*[@id='booking']/div[3]/div[3]/div[2]/div/div[1]/span[2]");
         }
-        click(String.format(Const.DATE_PATERRN, date));
+        click(String.format(Const.DATE_PATTERN, date));
+    }
+
+    public void selectCurrentDatePlusDays(int addDays){
+        LocalDate futureDate = LocalDate.now().plusDays(addDays);
+        if(lessThanTwoWeeks(futureDate)){
+            String elementDate =  CaseUtils.toCamelCase(futureDate.getMonth().toString(), true) + " " + futureDate.getDayOfMonth();
+            click(String.format(Const.DATE_PATTERN, elementDate));
+        }
     }
 
 
-    private static boolean lessThanTwoWeeks(String month, String dayOfMonth) {
+    private boolean lessThanTwoWeeks(String month, String dayOfMonth) {
         try {
             Date currentDate = new Date();
             Date givenDate = new SimpleDateFormat("MMMM", Locale.ENGLISH).parse(month);
@@ -50,7 +60,7 @@ public class CalendarNav extends BasePageObject {
             calendar.setTime(givenDate);
             LocalDate dateBefore = LocalDate.of(currentCalendar.get(Calendar.YEAR), currentCalendar.get(Calendar.MONTH) + 1, currentCalendar.get(Calendar.DAY_OF_MONTH));
             LocalDate dateAfter = LocalDate.of(currentCalendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, Integer.parseInt(dayOfMonth));
-            long noOfDaysBetween = ChronoUnit.DAYS.between(dateBefore, dateAfter);
+            long noOfDaysBetween = DAYS.between(dateBefore, dateAfter);
             return noOfDaysBetween <= 14;
         } catch (ParseException e) {
             e.printStackTrace();
@@ -59,7 +69,7 @@ public class CalendarNav extends BasePageObject {
     }
 
 
-    private static int checkWhatWeek(String month, String dayOfMonth) {
+    private int checkWhatWeek(String month, String dayOfMonth) {
         try {
             Date currentDate = new Date();
             Date givenDate = new SimpleDateFormat("MMMM", Locale.ENGLISH).parse(month);
@@ -76,8 +86,13 @@ public class CalendarNav extends BasePageObject {
         }
     }
 
+    private boolean lessThanTwoWeeks(LocalDate futureDate){
+        LocalDate currentDate = LocalDate.now();
+        return DAYS.between(currentDate, futureDate) <= 14;
+    }
 
-    private static String theMonth(int month) {
+
+    private String theMonth(int month) {
         String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
         return monthNames[month];
     }

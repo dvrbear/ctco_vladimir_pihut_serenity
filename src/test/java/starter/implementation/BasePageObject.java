@@ -30,9 +30,6 @@ public class BasePageObject extends PageObject {
         driver = Serenity.getDriver();
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, LONG_TIMEOUT);
-        System.out.println("*********************************************");
-        System.out.println(driver.toString());
-        System.out.println("*********************************************");
     }
 
     public void gotoURL(String url){
@@ -73,7 +70,7 @@ public class BasePageObject extends PageObject {
 
     public void timeDrag(String sourceElm, String targetElm){
         sleep(1);
-        WebElement startTimeElement = driver.findElement(By.xpath(String.format(Const.HOUR_PATERRN, sourceElm)));
+        WebElement startTimeElement = driver.findElement(By.xpath(String.format(Const.HOUR_PATTERN, sourceElm)));
         WebElement endTimeElement = driver.findElement(By.xpath(String.format("//td[contains(@data-time,'%s')]/ancestor::tr[position()=1]/preceding-sibling::tr[position()=1]",targetElm)));
         scroll(startTimeElement);
         Actions builder = new Actions(driver);
