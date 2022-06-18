@@ -12,6 +12,10 @@ public class NavigationDef {
     public void navigateToOffice(String officeId) {
         navigation.navigateToOffice(officeId);
     }
+    @When("navigate to parking : {}")
+    public void navigateToParking(String parkingId) {
+        navigation.navigateToParking(parkingId);
+    }
 
     @When("sleep : {} seconds")
     public void sleep(String sec) {

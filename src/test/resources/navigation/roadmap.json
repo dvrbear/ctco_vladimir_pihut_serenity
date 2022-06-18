@@ -1,0 +1,46 @@
+{
+  "map": [
+    "Ztower_kITchen_office",
+    "Ztower_Finance_parking",
+    "Ztower_ITHub_parking",
+    "ZityMall_1",
+    "ZityMall_2"
+  ],
+  "building": [
+    {
+      "name": "Ztower",
+      "xpath": "//span[text()='ZTower']",
+      "office": [
+        {
+          "id": "Ztower_kITchen_office",
+          "xpath": "//*[@id='root']/div[1]/div/main/div/div/div[2]/div/div/div/div"
+        }
+      ],
+      "parking": [
+        {
+          "id": "Ztower_Finance_parking",
+          "xpath": "//span[text()='Finance']"
+        },
+        {
+          "id": "Ztower_ITHub_parking",
+          "xpath": "//span[text()='IT Hub']"
+        }
+      ]
+    },
+    {
+      "name": "ZityMall",
+      "xpath": "//span[text()='Zity Mall']",
+      "office": [
+        {
+          "id": "ZityMall_1",
+          "xpath": "//*[text()='IO']"
+        },
+        {
+          "id": "ZityMall_2",
+          "xpath": "//*[text()='MMCCD']"
+        }
+      ],
+      "parking": []
+    }
+  ]
+}

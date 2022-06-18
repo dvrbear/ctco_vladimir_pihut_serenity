@@ -5,8 +5,10 @@ Feature: Booking workplace
     Given opens main page
     When introduce username and pass
     And inserts OTP
-    And navigate to office : Ztower_1
-    And select current date plus 2 days
+    And navigate to office : Ztower_kITchen_office
+#    And navigate to parking : Ztower_Finance_parking
+#    And navigate to parking : Ztower_ITHub_parking
+#    And select current date plus 2 days
 
 #    And selects date : June 22
 #    And selects place by hours: from 08:00 to 18:00

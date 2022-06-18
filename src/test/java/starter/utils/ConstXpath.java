@@ -17,7 +17,8 @@ public class ConstXpath {
 
     //Menu
     public static String EXPAND_NAVBAR_XP = "//*[@class='nav-bar-heading']";
-    public static String WORKPLACE_XP = "//*[@id='root']/div[1]/div/div/div/div/ul/div[3]/div/div/div/div[1]/div/div/span";
+    public static String WORKPLACE_XP = "//div[@path='/booking/workplace']";
+    public static String PARKING_XP = "//div[@path='/booking/parkplace']";
     public static String MENU_ICON_MAP_XP = "//*[@id='root']/div[1]/div/div/div/div/ul/div[2]/div/div/span";
     public static String ADMIN_PANEL_BTN_XP = "//div[@path='/admin-panel']";
     public static String APPROVALS_BTN_XP = "//span[text()='Approvals']";
