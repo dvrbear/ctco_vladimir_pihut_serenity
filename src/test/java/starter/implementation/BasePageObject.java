@@ -124,7 +124,22 @@ public class BasePageObject extends PageObject {
         }
     }
 
+    public boolean isElementClickable(String xpath){
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
+    public boolean isElementOnPage(String xpath){
+        try {
+            return driver.findElements(By.xpath(xpath)).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     public void saveValue(String key, Object value) {
         Serenity.setSessionVariable(key).to(value);
@@ -148,8 +163,6 @@ public class BasePageObject extends PageObject {
             failWithMessage("Insomnia");
         }
     }
-
-
 
     private WebElement getElement(String xpath) {
         return driver.findElement(By.xpath(xpath));

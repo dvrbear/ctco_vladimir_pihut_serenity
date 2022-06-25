@@ -14,7 +14,13 @@ public class Booking extends BasePageObject {
         click(CLOSE_BTN_XP);
     }
 
-    public void cancelBooking() {
+    public void tryToCancelWorkplaceBooking() {
+        if (isElementOnPage(CANCEL_BTN_XP)) {
+            cancelWorkplaceBooking();
+        }
+    }
+
+    public void cancelWorkplaceBooking() {
         click(CANCEL_BTN_XP);
         click(YES_BTN_XP);
         click(CLOSE_BTN_XP);

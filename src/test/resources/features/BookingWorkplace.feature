@@ -21,7 +21,7 @@
 #
 ##    And select first free place
 ##    And submit workplace booking
-##    And cancel booking
+##    And cancel workplace booking
 ##    And select date
 ##    And select place K7.65
 ##    And select place K7.69

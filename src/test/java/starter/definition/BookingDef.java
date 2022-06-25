@@ -12,9 +12,14 @@ public class BookingDef {
         booking.submitWorkplaceBooking();
     }
 
-    @When("cancel booking")
-    public void cancelBooking() {
-        booking.cancelBooking();
+    @When("cancel workplace booking")
+    public void cancelWorkplaceBooking() {
+        booking.cancelWorkplaceBooking();
+    }
+
+    @When("try to cancel workplace booking")
+    public void tryToCancelWorkplaceBooking() {
+        booking.tryToCancelWorkplaceBooking();
     }
 
     @When("select first free place")
