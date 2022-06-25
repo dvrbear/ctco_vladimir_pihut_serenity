@@ -20,7 +20,7 @@
 ##    And select Kitchen
 #
 ##    And select first free place
-##    And submit booking
+##    And submit workplace booking
 ##    And cancel booking
 ##    And select date
 ##    And select place K7.65

@@ -11,9 +11,13 @@ public class ConstXpath {
     public static String DATE_XP = "//*[@id='booking']/div[3]/div[3]/div[2]/div/div[2]/div/div[2]/div/span[35]";
     public static String PLACE_XP = "//*[@class='rect-place work-place'][@transform='translate(1458.26 2567)']";
     public static String BOOK_BTN_XP = "//span[text()='book']";
+    public static String CONFIRM_BTN_XP = "//span[text()='Confirm']";
     public static String CANCEL_BTN_XP = "//span[text()='cancel']";
     public static String CLOSE_BTN_XP = "//span[text()='Close']";
     public static String YES_BTN_XP = "//span[text()='Yes']";
+
+    //parking
+    public static String CAR_NUMBER_XP = "//input[@placeholder='Ex. ABC777']";
 
     //Menu
     public static String EXPAND_NAVBAR_XP = "//*[@class='nav-bar-heading']";
