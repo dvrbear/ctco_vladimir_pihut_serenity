@@ -1,5 +1,5 @@
 {
-  "map": [
+  "locations": [
     "Ztower_kITchen_office",
     "Ztower_Finance_parking",
     "Ztower_ITHub_parking",
@@ -13,17 +13,20 @@
       "office": [
         {
           "id": "Ztower_kITchen_office",
-          "xpath": "//*[@id='root']/div[1]/div/main/div/div/div[2]/div/div/div/div"
+          "xpath": "//*[@id='root']/div[1]/div/main/div/div/div[2]/div/div/div/div",
+          "prefix": "workplace-wrapper alias-K7."
         }
       ],
       "parking": [
         {
           "id": "Ztower_Finance_parking",
-          "xpath": "//span[text()='Finance']"
+          "xpath": "//span[text()='Finance']",
+          "prefix": "alias-"
         },
         {
           "id": "Ztower_ITHub_parking",
-          "xpath": "//span[text()='IT Hub']"
+          "xpath": "//span[text()='IT Hub']",
+          "prefix": "alias-"
         }
       ]
     },
@@ -33,11 +36,13 @@
       "office": [
         {
           "id": "ZityMall_1",
-          "xpath": "//*[text()='IO']"
+          "xpath": "//*[text()='IO']",
+          "prefix": "workplace-wrapper alias-Z4."
         },
         {
           "id": "ZityMall_2",
-          "xpath": "//*[text()='MMCCD']"
+          "xpath": "//*[text()='MMCCD']",
+          "prefix": "workplace-wrapper alias-Z4."
         }
       ],
       "parking": []

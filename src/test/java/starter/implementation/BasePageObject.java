@@ -45,27 +45,36 @@ public class BasePageObject extends PageObject {
         wait = new WebDriverWait(driver, LONG_TIMEOUT);
     }
 
-    public void click(String xpath) {
+    public void clickOnFirstFound(String xpath) {
         try {
-            WebElement element = getElement(xpath);
-            wait.until(ExpectedConditions.elementToBeClickable(element));
             sleep(1);
-            element.click();
+            click(driver.findElements(By.xpath(xpath)).get(0));
         } catch (Exception e) {
             locatorNotFound(xpath);
         }
     }
 
-    public void actionClick(String xpath) {
-        actionClick(getElement(xpath));
+    public void click(String xpath) {
+        try {
+            sleep(2);
+            click(getElement(xpath));
+        } catch (Exception e) {
+            locatorNotFound(xpath);
+        }
     }
 
-    public void actionClick(WebElement element) {
-        Actions action = new Actions(driver);
-        action.moveToElement(element)
-                .click()
-                .build()
-                .perform();
+    public void click(WebElement element) {
+        try {
+            sleep(1);
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            Actions action = new Actions(driver);
+            action.moveToElement(element)
+                    .click()
+                    .build()
+                    .perform();
+        } catch (Exception e) {
+            locatorNotFound(element.toString());
+        }
     }
 
     public void timeDrag(String sourceElm, String targetElm){
@@ -115,18 +124,7 @@ public class BasePageObject extends PageObject {
         }
     }
 
-    public void clickOnFreePLace(String place) {
-        String placeXpath = String.format(Const.FREE_PLACE_PATTERN, place);
-        if (isPlaceFree(placeXpath)) {
-            actionClick(placeXpath);
-        } else {
-            failWithMessage(String.format(Const.MESSAGE_PLACE_BUSY, place));
-        }
-    }
 
-    public List<WebElement> getAllFreePlaces() {
-        return driver.findElements(By.xpath(FREE_PLACE_SEARCH_PATTERN));
-    }
 
     public void saveValue(String key, Object value) {
         Serenity.setSessionVariable(key).to(value);
@@ -151,9 +149,7 @@ public class BasePageObject extends PageObject {
         }
     }
 
-    private boolean isPlaceFree(String placeXpath) {
-        return driver.findElements(By.xpath(placeXpath)).size() > 0;
-    }
+
 
     private WebElement getElement(String xpath) {
         return driver.findElement(By.xpath(xpath));
