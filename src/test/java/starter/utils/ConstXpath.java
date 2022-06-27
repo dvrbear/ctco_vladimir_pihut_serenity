@@ -27,4 +27,19 @@ public class ConstXpath {
     public static String ADMIN_PANEL_BTN_XP = "//div[@path='/admin-panel']";
     public static String APPROVALS_BTN_XP = "//span[text()='Approvals']";
 
+    //MyWokrSchedule
+
+    public static String MY_ICON_IN_RIGHT_CORNER_XP = "//img[contains(@class,'MuiAvatar-img')]/ancestor::div[@class='account-container']";
+    public static String MY_SETTINGS_XP = "//span[text()='My settings']/ancestor::li";
+    public static String WORK_SCHEDULE_XP = "//button[text()='Work schedule']";
+    public static String WORK_SCHEDULE_EDIT_BUTTON_XP = "//span[text()='Edit']/ancestor::button";
+
+    public static String WORK_SCHEDULE_SAVE_BUTTON_XP = "//span[text()='Save']/ancestor::button";
+
+    public static String WORK_SCHEDULE_OK_BUTTON_XP = "//span[text()='OK']/ancestor::button";
+
+
+    public static String WORK_SCHEDULE_RESET_BUTTON_XP = "//span[text()='Reset']/ancestor::button";
+
+
 }
