@@ -1,4 +1,3 @@
-@Seat
 Feature: Booking
 
   Scenario: Adjust Work Schedule
@@ -12,7 +11,5 @@ Feature: Booking
     And selects working hours from 8:30 to 17:00
     And clicks Save
 #    And clicks Reset
-
-
 
     Then debug step
