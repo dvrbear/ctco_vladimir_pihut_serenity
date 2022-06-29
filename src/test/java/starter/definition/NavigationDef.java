@@ -1,30 +1,27 @@
 package starter.definition;
 
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import starter.implementation.Navigation;
+
+import static starter.utils.Const.BASE_URL;
 
 public class NavigationDef {
 
     private Navigation navigation;
 
-    @When("navigate to office : {}")
-    public void navigateToOffice(String officeId) {
-        navigation.navigateToOffice(officeId);
-    }
-    @When("navigate to parking : {}")
-    public void navigateToParking(String parkingId) {
-        navigation.navigateToParking(parkingId);
+    @When("open main page")
+    public void openShopPage() {
+        navigation.gotoURL(BASE_URL);
     }
 
-    @When("sleep : {} seconds")
-    public void sleep(String sec) {
-        navigation.sleep(Integer.parseInt(sec));
+    @When("goto vacancies")
+    public void gotoVacancies() {
+        navigation.gotoVacancies();
     }
 
-    @Then("debug step")
-    public void debugStep() {
-        System.out.println("debug step");
+    @When("goto test automation engineer")
+    public void gotoAutomation() {
+        navigation.gotoAutomation();
     }
 
 }

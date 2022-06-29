@@ -7,10 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        tags = "@Seat",
-//        tags = "@Orange",
+        tags = "@Run",
         features = "src/test/resources/features"
-
 )
 public class CucumberTestSuite {
 }
